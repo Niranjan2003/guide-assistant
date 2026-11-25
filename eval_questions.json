@@ -1,0 +1,27 @@
+{
+  "note": "questions i wrote myself for the sample guide, so only a rough check",
+  "in_scope": [
+    {"q": "How often do I have to meet my thesis supervisor?", "section": "Thesis supervision"},
+    {"q": "How long does it take to get my thesis topic approved?", "section": "Thesis topic approval"},
+    {"q": "How many pages should a bachelor's thesis be?", "section": "Thesis length and format"},
+    {"q": "Can I use ChatGPT to write my thesis?", "section": "Use of AI tools in coursework and theses"},
+    {"q": "What happens if the plagiarism similarity is over 20 percent?", "section": "Plagiarism check"},
+    {"q": "Until when can I still enrol late to a course?", "section": "Course enrolment"},
+    {"q": "Can I cancel a course I enrolled in?", "section": "Cancelling a course enrolment"},
+    {"q": "How early must I register for an exam?", "section": "Exam registration"},
+    {"q": "I was sick on the exam day, what should I do?", "section": "Absence from an exam because of illness"},
+    {"q": "Who signs the practical training agreement?", "section": "Practical training"},
+    {"q": "How do I get my earlier studies recognised as credits?", "section": "Recognition of prior learning"},
+    {"q": "Can I take a leave of absence for military service?", "section": "Leave of absence"},
+    {"q": "When is the drop-in session with the study counsellor?", "section": "Study guidance"},
+    {"q": "How do I appeal a grade?", "section": "Grade appeals"},
+    {"q": "I forgot my password, how do I reset it?", "section": "IT support and accounts"},
+    {"q": "When do I see the results of the course feedback survey?", "section": "Course feedback"}
+  ],
+  "out_of_scope": [
+    "What is on the cafeteria lunch menu today?",
+    "How much is a parking permit on campus?",
+    "Who won the ice hockey game yesterday?",
+    "What are the opening hours of the gym?"
+  ]
+}

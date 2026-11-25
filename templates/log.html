@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="box">
+  <h2>Question log</h2>
+  <p>{{ total }} questions asked so far, {{ missed }} of them not answered by the guide.
+  The unanswered ones show what is missing from the guide.</p>
+
+  {% if recent %}
+  <table>
+    <tr><th>asked</th><th>question</th><th>result</th></tr>
+    {% for q in recent %}
+    <tr>
+      <td>{{ q.asked_at.strftime("%d.%m. %H:%M") }}</td>
+      <td>{{ q.text }}</td>
+      <td>
+        {% if q.answered %}<span class="tag yes">{{ q.section }}</span>
+        {% else %}<span class="tag no">not in the guide</span>{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <p class="small">nothing asked yet.</p>
+  {% endif %}
+  <p class="small">the questions are stored in a local sqlite file, nothing is sent anywhere.</p>
+</div>
+{% endblock %}

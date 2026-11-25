@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="box">
+  <form method="post" action="{{ url_for('index') }}">
+    <label for="question">Ask something about the study guide</label>
+    <input type="text" id="question" name="question" value="{{ question }}" placeholder="e.g. can I use AI tools in my thesis?" autofocus>
+    <button type="submit">Ask</button>
+    <span class="small">answers only come from: {{ name }}</span>
+  </form>
+</div>
+
+{% if result %}
+<div class="box">
+  {% if result.found %}
+    <span class="tag yes">from the guide</span>
+    <p class="answer">{{ result.text }}</p>
+    {% for h in result.hits %}
+      <blockquote>
+        <b>{{ h.title }}</b>
+        {{ h.text }}
+      </blockquote>
+    {% endfor %}
+  {% else %}
+    <span class="tag no">not in the guide</span>
+    <p class="answer">The guide doesn't seem to answer this. Better to ask the study office than to guess.</p>
+    {% if result.hits and result.hits[0].coverage > 0 %}
+      <p class="small">closest section: {{ result.hits[0].title }} (only {{ (result.hits[0].coverage * 100)|round|int }}% of the key words match)</p>
+    {% endif %}
+  {% endif %}
+</div>
+{% endif %}
+
+<div class="box">
+  <details>
+    <summary>sections in the guide ({{ titles|length }})</summary>
+    <ul>
+      {% for t in titles %}<li>{{ t }}</li>{% endfor %}
+    </ul>
+  </details>
+</div>
+
+<div class="box">
+  <details>
+    <summary>use your own guide</summary>
+    <form method="post" action="{{ url_for('set_guide') }}">
+      <label for="guide">paste it as markdown, one "## title" line per section</label>
+      <textarea id="guide" name="guide" rows="8"></textarea>
+      <button type="submit">Use this guide</button>
+    </form>
+    <form method="post" action="{{ url_for('reset_guide') }}">
+      <button type="submit" class="plain">back to the sample guide</button>
+    </form>
+    <p class="small">the pasted text only lives in memory while the app runs.</p>
+  </details>
+</div>
+{% endblock %}
